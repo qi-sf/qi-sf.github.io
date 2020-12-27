@@ -13,10 +13,12 @@
 <meta property="og:site_name" content="Resume">
 <meta property="og:description" content="一、react-hooks概念 　　React中组件分为类组件和函数组件，在React中如果需要记录一个组件的状态的时候，那么这个组件必须是类组件。那么能否让函数组件拥有类组件的功能？这个时候我们就需要使用hooks。 　　Hooks让我们的函数组件拥有了类似类组件的特性，Hook是React16.8中新增的功能，它们允许您在不编写类的情况下使用状态和其他React功能 二、类组件与Hooks简单">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2020/12/26/img/1.png">
 <meta property="article:published_time" content="2020-12-26T00:48:26.000Z">
-<meta property="article:modified_time" content="2020-12-26T00:54:55.098Z">
+<meta property="article:modified_time" content="2020-12-27T11:13:50.683Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/12/26/img/1.png">
   
     <link rel="alternate" href="/atom.xml" title="Resume" type="application/atom+xml">
   
@@ -137,11 +139,63 @@ export default ()=&gt;&#123;
         &lt;/div&gt;
     )
 &#125;</code></pre>
+<p>三、Hooks常用的方法<br>　　　　useState,useEffect,useContext,useReducer以上是hooks经常会用到的一些方法<br>（1）useState<br>可以在函数组件(function component)使用它。它在的作用是添加本地状态到当前组件。React会一直维持在这个state。useState将会有两个返回值：当前的state和一个更新state的方法。<br>调用useState时传入的参数表示着initial State。我们可以多次调用useState在同一个组件中，表示创建多个状态。<br>import React, { useState } from ‘react’</p>
+<pre><code>const HookDemo = (&#123;&#125;) =&gt; &#123;
+const [count, setCount] = useState(0)
+const [number, setNumber] = useState(2)
+const [todos, setTodos] = useState([&#123;text: &#39;huzhiwei&#39;&#125;])
+
+const setHandle = () =&gt; &#123;
+  todos[0].text = &#39;jp&#39;
+  setTodos(Object.assign(&#123;&#125;, todos))
+&#125;
+return (
+  count: &#123;count&#125;
+  number: &#123;number&#125;
+  todos: &#123;todos[0].text&#125;
+  &lt;button onClick=&#123;()=&gt;setCount(count+1)&#125;&gt;count handler&lt;/button&gt;
+  &lt;button onClick=&#123;()=&gt;setNumber(number+1)&#125;&gt;number handler&lt;/button&gt;
+  &lt;button onClick=&#123;()=&gt;setHandle()&#125;&gt;todos handler&lt;/button&gt;
+)</code></pre>
+<p>}<br>（2）useEffect<br>我们可能执行过请求获取数据，监听，或者手动改变DOM。我们可以称为这些为副作用。因为这些操作可能会影响到其他组件或者不能在渲染组件中完成。<br>Effect Hook给函数组件增加了处理副作用的能力。可以理解它的能力和componentDidMount、componentDidUpdate、componentWillUnmount类似。useEffect将这些统一为一个单独的API。<br>如下是React文档中的例子：<br>import React, { useState, useEffect } from ‘react’</p>
+<p>function Example() {<br>    const [count, setCount] = useState(0)</p>
+<pre><code>useEffect(() =&gt; &#123;
+    document.title = &#39;good body&#39;
+&#125;)
+
+return (
+    &lt;div&gt;
+        &lt;span&gt;&#123; count &#125;&lt;/span&gt;
+        &lt;button onClick=&#123;()=&gt;setCount(count + 1)&#125;&gt;click me&lt;/button&gt;
+    &lt;/div&gt;
+)</code></pre>
+<p>}<br>当我们调用useEffect时，就是告诉React在刷新对DOM的更改后执行effect函数。React会在每次渲染后执行effect函数。<br>effect还可以选择性地指定如何通过返回函数在它们之后“清理”。例如，该组件使用一个效果来订阅朋友的在线状态，并通过取消订阅来清理:<br>import React, { useState, useEffect } from ‘react’</p>
+<p>function FriendStatus(props) {<br>    const [isOnline, setIsOnline] = useState(null)</p>
+<pre><code>function handleStatusChange(status) &#123;
+    setIsOnline(status.isOnline)
+&#125;
+
+useEffect(() =&gt; &#123;
+    ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange)
+    return () =&gt; &#123;
+        ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange)
+    &#125;
+&#125;)
+
+if(isOnline === null) &#123;
+    return &#39;Loading...&#39;
+&#125;
+return isOnline ? &#39;Online&#39; : &#39;Offline&#39;</code></pre>
+<p>}<br>在这个例子中,当组件unmount的时候React将会通过ChatAPI取消订阅。在后续的render又将会重新执行这些effect。</p>
+<p>Tip: 我们在组件中也可以像useState一样多次调用。</p>
+<p>effect在第一次组件挂载和后面组件更新时都会执行，这样就会导致一些非必要的effect重复执行。如果我们想通过对比前后数据是否发生改变来判断是否触发effect，我们可以通过传入数组作为第二个参数：<br>useEffect(() =&gt; {<br>  document.title = <code>You clicked $&#123;count&#125; times</code>;<br>}, [count]); // 仅在 count 更改时更新<br>如果你想要执行只运行一次的 effect（仅在组件挂载和卸载时执行），你可以传递一个空数组([])作为第二个参数。这就告诉 React 你的 effect 不依赖于 props 或 state 中的任何值，所以它永远都不需要重复执行。这并不算是一种特殊情况 —— 依然遵循输入数组的工作方式。<br>（3）useContext（）<br>如果需要两个或者多个组件都共享一个值的话，就可以使用useContext了<br>这里比如有两个Context组件，都需要name变量的值，那么就通过createContext方法先定义一个useContext叫做AppContext，可以直接在里面添加defaultValue，也可以在引用的时候再添加。<br><img src="../img/1.png" alt="img"></p>
+<p>四. Hooks规则</p>
+<p>·Hooks只在顶层调用，不要在循环，条件判断或者嵌套函数中调用钩子。<br>·只在React的函数组件(function Component)中调用Hooks。<br>·对于自定义Hooks，我们使用use开头命名。<br>·eslint-plugin-react-hooks该插件可以规范hooks写法。<br>·React 靠的是 Hook 调用的顺序来对应state和useState。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/26/Hooks/" data-id="ckj4zudhv0000usu1h6x0gfio" data-title="Hooks" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/12/26/Hooks/" data-id="ckj71c2h300002cu1dv0c9ziz" data-title="Hooks" class="article-share-link">Share</a>
       
       
       
