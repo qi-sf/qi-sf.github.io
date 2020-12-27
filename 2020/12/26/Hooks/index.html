@@ -14,8 +14,9 @@
 <meta property="og:description" content="一、react-hooks概念 　　React中组件分为类组件和函数组件，在React中如果需要记录一个组件的状态的时候，那么这个组件必须是类组件。那么能否让函数组件拥有类组件的功能？这个时候我们就需要使用hooks。 　　Hooks让我们的函数组件拥有了类似类组件的特性，Hook是React16.8中新增的功能，它们允许您在不编写类的情况下使用状态和其他React功能 二、类组件与Hooks简单">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2020/12/26/img/1.png">
+<meta property="og:image" content="http://example.com/2020/12/26/img/2.png">
 <meta property="article:published_time" content="2020-12-26T00:48:26.000Z">
-<meta property="article:modified_time" content="2020-12-27T11:13:50.683Z">
+<meta property="article:modified_time" content="2020-12-27T11:19:39.513Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2020/12/26/img/1.png">
@@ -188,14 +189,18 @@ if(isOnline === null) &#123;
 return isOnline ? &#39;Online&#39; : &#39;Offline&#39;</code></pre>
 <p>}<br>在这个例子中,当组件unmount的时候React将会通过ChatAPI取消订阅。在后续的render又将会重新执行这些effect。</p>
 <p>Tip: 我们在组件中也可以像useState一样多次调用。</p>
-<p>effect在第一次组件挂载和后面组件更新时都会执行，这样就会导致一些非必要的effect重复执行。如果我们想通过对比前后数据是否发生改变来判断是否触发effect，我们可以通过传入数组作为第二个参数：<br>useEffect(() =&gt; {<br>  document.title = <code>You clicked $&#123;count&#125; times</code>;<br>}, [count]); // 仅在 count 更改时更新<br>如果你想要执行只运行一次的 effect（仅在组件挂载和卸载时执行），你可以传递一个空数组([])作为第二个参数。这就告诉 React 你的 effect 不依赖于 props 或 state 中的任何值，所以它永远都不需要重复执行。这并不算是一种特殊情况 —— 依然遵循输入数组的工作方式。<br>（3）useContext（）<br>如果需要两个或者多个组件都共享一个值的话，就可以使用useContext了<br>这里比如有两个Context组件，都需要name变量的值，那么就通过createContext方法先定义一个useContext叫做AppContext，可以直接在里面添加defaultValue，也可以在引用的时候再添加。<br><img src="../img/1.png" alt="img"></p>
+<p>effect在第一次组件挂载和后面组件更新时都会执行，这样就会导致一些非必要的effect重复执行。如果我们想通过对比前后数据是否发生改变来判断是否触发effect，我们可以通过传入数组作为第二个参数：<br>useEffect(() =&gt; {<br>  document.title = <code>You clicked $&#123;count&#125; times</code>;<br>}, [count]); // 仅在 count 更改时更新<br>如果你想要执行只运行一次的 effect（仅在组件挂载和卸载时执行），你可以传递一个空数组([])作为第二个参数。这就告诉 React 你的 effect 不依赖于 props 或 state 中的任何值，所以它永远都不需要重复执行。这并不算是一种特殊情况 —— 依然遵循输入数组的工作方式。<br>（3）useContext（）<br>如果需要两个或者多个组件都共享一个值的话，就可以使用useContext了<br>这里比如有两个Context组件，都需要name变量的值，那么就通过createContext方法先定义一个useContext叫做AppContext，可以直接在里面添加defaultValue，也可以在引用的时候再添加。</p>
+<p><img src="../img/1.png" alt="img"></p>
+<p>（4）useReducer<br>跟以前的reducer一样，原理也是(state,action) =&gt; newState<br>这里也是一样的，可以const [state,dispatch] = useReducer(reducer, initialState)</p>
+<p><img src="../img/2.png" alt="img"></p>
+<p>根据action的type进行不同的dispatch，这里在点击Add的Button的时候进行dispatch<br>&lt;button onClick={() =&gt; dispatch({ type: ‘Add’ })}&gt;Add +</button><br>这样子就好了</p>
 <p>四. Hooks规则</p>
 <p>·Hooks只在顶层调用，不要在循环，条件判断或者嵌套函数中调用钩子。<br>·只在React的函数组件(function Component)中调用Hooks。<br>·对于自定义Hooks，我们使用use开头命名。<br>·eslint-plugin-react-hooks该插件可以规范hooks写法。<br>·React 靠的是 Hook 调用的顺序来对应state和useState。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/26/Hooks/" data-id="ckj71c2h300002cu1dv0c9ziz" data-title="Hooks" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/12/26/Hooks/" data-id="ckj71ja7l0000kcu1102g05j7" data-title="Hooks" class="article-share-link">Share</a>
       
       
       
