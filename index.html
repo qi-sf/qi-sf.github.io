@@ -104,11 +104,15 @@
 <p>Null 和 Undefined<br>TypeScript里，undefined和null两者各自有自己的类型分别叫做undefined和null,它们的本身的类型用处不是很大。<br>默认情况下null和undefined是所有类型的子类型。 就是说你可以把 null和undefined赋值给number类型的变量。<br><img src="../img/14.png" alt="img"></p>
 <p>Never<br>never类型表示的是那些永不存在的值的类型。never类型是那些总是会抛出异常或根本就不会有返回值的函数表达式或箭头函数表达式的返回值类型，never类型是任何类型的子类型，也可以赋值给任何类型；然而，没有类型是never的子类型或可以赋值给never类型（除了never本身之外）。 即使 any也不可以赋值给never。<br>返回never的函数必须存在无法达到的终点：<br><img src="../img/15.png" alt="img"></p>
 <p>Object<br>object表示非原始类型，就是除number，string，boolean，symbol，null或undefined之外的类型。<br><img src="../img/16.png" alt="img"></p>
+<p>接口<br>在面向对象语言中，接口（Interfaces）是一个很重要的概念，ts中的接口主要的作用是：<br>对“对象”进行约束描述<br>对“类”的一部分行为进行抽象<br>基本用法：类型检查器不会去检查属性的顺序，只要相应的属性存在并且类型也是对的就可以。<br>interface people{<br>  name: string;<br>  age: number<br>}<br>function say(person: people): void {<br>  console.log(person.age)<br>}<br>let obj = {<br>  name: ‘xiao’,<br>  age: 18<br>}<br>say(obj); </p>
+<p>属性数量不确定时的定义方法：<br>1）可选属性：少一个，用可选属性<br>定义可选属性的接口，只需在可选属性名字的定义后面加一个 ? 符号</p>
+<p>interface labelValue {<br>    label?: string;<br>    size: number<br>}<br>function print(labelObj: labelValue) {<br>    console.log(labelObj.label)<br>}<br>let obj = {size: 10}<br>print(obj)</p>
+<p>2）多一个，用索引类型<br>用于描述那些“通过索引得到”的类型，比如arr[0]或obj[“key”]。<br>可以大概理解为是在定义对象中key（propName）和value的数据结构，后续对象中的属性，只要key和value满足索引签名的限定即可, 无论有多少个都无所谓。<br>interface stringArray {<br>    [propName:number]:string<br>}<br>let arr:stringArray = {<br>    0:’a’,<br>    1:’b’,<br>    2:’c’<br>};<br>let arr:stringArray = [‘a’, ‘b’, ‘c’];<br>console.log(arr[0]);<br>console.log(arr[1]);<br>console.log(arr[2]);</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/29/TypeScript/" data-id="ckj9yihpr000368u1843g1oe9" data-title="TypeScript" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/12/29/TypeScript/" data-id="ckja02c5d0003twu1dmpt5w3g" data-title="TypeScript" class="article-share-link">Share</a>
       
       
       
@@ -159,7 +163,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/28/ES6-class/" data-id="ckj9yihpk000068u1e5bp364w" data-title="ES6-class" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/12/28/ES6-class/" data-id="ckja02c560000twu10ne639v3" data-title="ES6-class" class="article-share-link">Share</a>
       
       
       
@@ -295,7 +299,7 @@ return isOnline ? &#39;Online&#39; : &#39;Offline&#39;</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/26/Hooks/" data-id="ckj9yihpo000168u11rhscs88" data-title="Hooks" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/12/26/Hooks/" data-id="ckja02c5c0002twu1ee9ehhvn" data-title="Hooks" class="article-share-link">Share</a>
       
       
       
@@ -334,7 +338,7 @@ return isOnline ? &#39;Online&#39; : &#39;Offline&#39;</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/03/25/%E7%BB%83%E4%B9%A0/" data-id="ckj9yihpq000268u188b7capk" data-title="练习" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/03/25/%E7%BB%83%E4%B9%A0/" data-id="ckja02c5a0001twu12l9g9u4q" data-title="练习" class="article-share-link">Share</a>
       
       
       
