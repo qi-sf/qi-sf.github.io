@@ -71,6 +71,62 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-严格模式" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/12/30/%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/" class="article-date">
+  <time class="dt-published" datetime="2020-12-30T12:29:01.986Z" itemprop="datePublished">2020-12-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>title: 严格模式<br>date: 2020-12-30 20:29:01<br>tags:</p>
+<p>ES5严格模式（Strict mode）<br>严格模式（Strict mode）是由ECMA-262规范定义的新兴JavaScript标准，第五版发布于2009年12月。旨在改善错误检查功能并且标识可能不会延续到未来JavaScript版本的脚本。ES5严格模式是限制性更强的JavaScript变体，它与常规JavaScript的语义不同，其分析更为严格。<br>目前，除了IE6-9，其它浏览器均已支持ES5严格模式。</p>
+<p>设立”严格模式”的目的，主要有以下几个：错误检测、规范、效率、安全、面向未来</p>
+<p>　　- 消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行为;</p>
+<p>　　- 消除代码运行的一些不安全之处，保证代码运行的安全；</p>
+<p>　　- 提高编译器效率，增加运行速度；</p>
+<p>　　- 为未来新版本的Javascript做好铺垫。</p>
+<h2 id="严格模式的使用"><a href="#严格模式的使用" class="headerlink" title="严格模式的使用"></a>严格模式的使用</h2><p>进入”严格模式”的<strong>编译指示</strong>（pragma），是这行语句：　　</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;use strict&quot;;  </span><br></pre></td></tr></table></figure>
+<h4 id="1）全局模式"><a href="#1）全局模式" class="headerlink" title="1）全局模式"></a>1）全局模式</h4><p>将”use strict”放在脚本文件的第一行，则整个脚本都将以”严格模式”运行。</p>
+<p>如果这行语句不在第一行，则无效，整个脚本以”正常模式”运行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(num) <span class="comment">//1 与非严格模式没什么区别</span></span><br></pre></td></tr></table></figure>
+<h4 id="2）局部模式"><a href="#2）局部模式" class="headerlink" title="2）局部模式"></a>2）局部模式</h4><p> 将”use strict”放在函数体的第一行，则整个函数以”严格模式”运行。 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">    &#x27;use strict&#x27;</span></span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">1</span></span><br><span class="line">    <span class="built_in">console</span>.log(num)<span class="comment">//1 与非严格模式也没什么区别</span></span><br><span class="line">&#125;</span><br><span class="line">fn()</span><br></pre></td></tr></table></figure>
+<p> <strong>“use strict” 的位置是很讲究的，必须在首部。首部指其前面没有任何有效js代码。以下都是无效的，将不会触发严格模式</strong> </p>
+<p>（1）“use strict” 前有代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`var`</span> <span class="string">`width = 10`</span><span class="string">`&#x27;use strict&#x27;`</span><span class="string">`globalVar = 100`</span></span><br></pre></td></tr></table></figure>
+<p>（2）“use strict” 前有个空语句都不行</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`;`</span><span class="string">`&#x27;use strict&#x27;`</span><span class="string">`globalVar = 100`</span></span><br></pre></td></tr></table></figure>
+<p>（3）“use strict” 前有符号也不行</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`function`</span> <span class="string">`func() &#123;`</span><span class="string">`  `</span><span class="string">`;`</span><span class="string">`&#x27;use strict&#x27;`</span><span class="string">`  `</span><span class="string">`localVar = 200`</span><span class="string">`&#125;`</span></span><br></pre></td></tr></table></figure>
+<h2 id="严格模式下的执行限制"><a href="#严格模式下的执行限制" class="headerlink" title="严格模式下的执行限制"></a>严格模式下的执行限制</h2><p><strong>变量</strong></p>
+<p>非严格模式下，a = 1可以创建一个全局变量。</p>
+<p>严格模式下，变量都必须先用var命令显示声明，然后再使用。 严格模式不允许意外创建的全局变量</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;  </span><br><span class="line">a = <span class="number">1</span>; <span class="comment">// 报错，a未声明  </span></span><br></pre></td></tr></table></figure>
+<p>还有全局的for循环 </p>
+<p> 这种写法i 会不小心溢出成为全局变量。在严格模式中会报错 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;<span class="number">5</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/30/%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/" data-id="ckjbfcs19000304u1azjk9nm5" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-TypeScript" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2020/12/29/TypeScript/" class="article-date">
@@ -112,7 +168,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/29/TypeScript/" data-id="ckja02c5d0003twu1dmpt5w3g" data-title="TypeScript" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/12/29/TypeScript/" data-id="ckjbfcs18000204u16b9adxgs" data-title="TypeScript" class="article-share-link">Share</a>
       
       
       
@@ -163,7 +219,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/28/ES6-class/" data-id="ckja02c560000twu10ne639v3" data-title="ES6-class" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/12/28/ES6-class/" data-id="ckjbfcs12000004u165cj61f0" data-title="ES6-class" class="article-share-link">Share</a>
       
       
       
@@ -299,7 +355,7 @@ return isOnline ? &#39;Online&#39; : &#39;Offline&#39;</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/26/Hooks/" data-id="ckja02c5c0002twu1ee9ehhvn" data-title="Hooks" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/12/26/Hooks/" data-id="ckjbfcs16000104u1bfalbe39" data-title="Hooks" class="article-share-link">Share</a>
       
       
       
@@ -338,7 +394,7 @@ return isOnline ? &#39;Online&#39; : &#39;Offline&#39;</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/03/25/%E7%BB%83%E4%B9%A0/" data-id="ckja02c5a0001twu12l9g9u4q" data-title="练习" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/03/25/%E7%BB%83%E4%B9%A0/" data-id="ckjbfcs1a000404u1b0y253qv" data-title="练习" class="article-share-link">Share</a>
       
       
       
@@ -379,6 +435,10 @@ return isOnline ? &#39;Online&#39; : &#39;Offline&#39;</code></pre>
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/12/30/%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2020/12/29/TypeScript/">TypeScript</a>
