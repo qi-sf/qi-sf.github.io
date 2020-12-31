@@ -199,104 +199,33 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>一、react-hooks概念</p>
+                <p><strong>一、react-hooks概念</strong></p>
 <p>　　React中组件分为类组件和函数组件，在React中如果需要记录一个组件的状态的时候，那么这个组件必须是类组件。那么能否让函数组件拥有类组件的功能？这个时候我们就需要使用hooks。</p>
 <p>　　Hooks让我们的函数组件拥有了类似类组件的特性，Hook是React16.8中新增的功能，它们允许您在不编写类的情况下使用状态和其他React功能</p>
-<p>二、类组件与Hooks简单对比</p>
-<p>　　类组件<br>    import React from “react”</p>
-<pre><code>export default class App extends React.Component&#123;
-    constructor()&#123;
-        super();
-        this.state = &#123;
-            count:0
-        &#125;
-        this.handleClick = this.handleClick.bind(this);
-    &#125;
-    render()&#123;
-        let &#123;count&#125; = this.state;
-        return (
-            &lt;div&gt;
-                &lt;h2&gt;&#123;count&#125;&lt;/h2&gt;
-                &lt;button onClick=&#123;this.handleClick&#125;&gt;修改&lt;/button&gt;
-            &lt;/div&gt;
-            )
-    &#125;
-    handleClick()&#123;
-        this.setState(&#123;
-            count:this.state.count+1
-        &#125;)
-    &#125;
-&#125;
-
-hooks
-import React,&#123;useState&#125; from &quot;react&quot;;
-
-export default ()=&gt;&#123;
-    let [count,setCount] = useState(0);
-    let handleAdd = ()=&gt;setCount(count+1);
-    return (
-        &lt;div&gt;
-            &lt;h2&gt;&#123;count&#125;&lt;/h2&gt;
-            &lt;button onClick=&#123;handleAdd&#125;&gt;点击&lt;/button&gt;
-        &lt;/div&gt;
-    )
-&#125;</code></pre>
-<p>三、Hooks常用的方法<br>　　　　useState,useEffect,useContext,useReducer以上是hooks经常会用到的一些方法<br>（1）useState<br>可以在函数组件(function component)使用它。它在的作用是添加本地状态到当前组件。React会一直维持在这个state。useState将会有两个返回值：当前的state和一个更新state的方法。<br>调用useState时传入的参数表示着initial State。我们可以多次调用useState在同一个组件中，表示创建多个状态。<br>import React, { useState } from ‘react’</p>
-<pre><code>const HookDemo = (&#123;&#125;) =&gt; &#123;
-const [count, setCount] = useState(0)
-const [number, setNumber] = useState(2)
-const [todos, setTodos] = useState([&#123;text: &#39;huzhiwei&#39;&#125;])
-
-const setHandle = () =&gt; &#123;
-  todos[0].text = &#39;jp&#39;
-  setTodos(Object.assign(&#123;&#125;, todos))
-&#125;
-return (
-  count: &#123;count&#125;
-  number: &#123;number&#125;
-  todos: &#123;todos[0].text&#125;
-  &lt;button onClick=&#123;()=&gt;setCount(count+1)&#125;&gt;count handler&lt;/button&gt;
-  &lt;button onClick=&#123;()=&gt;setNumber(number+1)&#125;&gt;number handler&lt;/button&gt;
-  &lt;button onClick=&#123;()=&gt;setHandle()&#125;&gt;todos handler&lt;/button&gt;
-)</code></pre>
-<p>}<br>（2）useEffect<br>我们可能执行过请求获取数据，监听，或者手动改变DOM。我们可以称为这些为副作用。因为这些操作可能会影响到其他组件或者不能在渲染组件中完成。<br>Effect Hook给函数组件增加了处理副作用的能力。可以理解它的能力和componentDidMount、componentDidUpdate、componentWillUnmount类似。useEffect将这些统一为一个单独的API。<br>如下是React文档中的例子：<br>import React, { useState, useEffect } from ‘react’</p>
-<p>function Example() {<br>    const [count, setCount] = useState(0)</p>
-<pre><code>useEffect(() =&gt; &#123;
-    document.title = &#39;good body&#39;
-&#125;)
-
-return (
-    &lt;div&gt;
-        &lt;span&gt;&#123; count &#125;&lt;/span&gt;
-        &lt;button onClick=&#123;()=&gt;setCount(count + 1)&#125;&gt;click me&lt;/button&gt;
-    &lt;/div&gt;
-)</code></pre>
-<p>}<br>当我们调用useEffect时，就是告诉React在刷新对DOM的更改后执行effect函数。React会在每次渲染后执行effect函数。<br>effect还可以选择性地指定如何通过返回函数在它们之后“清理”。例如，该组件使用一个效果来订阅朋友的在线状态，并通过取消订阅来清理:<br>import React, { useState, useEffect } from ‘react’</p>
-<p>function FriendStatus(props) {<br>    const [isOnline, setIsOnline] = useState(null)</p>
-<pre><code>function handleStatusChange(status) &#123;
-    setIsOnline(status.isOnline)
-&#125;
-
-useEffect(() =&gt; &#123;
-    ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange)
-    return () =&gt; &#123;
-        ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange)
-    &#125;
-&#125;)
-
-if(isOnline === null) &#123;
-    return &#39;Loading...&#39;
-&#125;
-return isOnline ? &#39;Online&#39; : &#39;Offline&#39;</code></pre>
-<p>}<br>在这个例子中,当组件unmount的时候React将会通过ChatAPI取消订阅。在后续的render又将会重新执行这些effect。</p>
+<p><strong>二、类组件与Hooks简单对比</strong></p>
+<p>类组件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&quot;react&quot;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">super</span>();</span><br><span class="line">        <span class="built_in">this</span>.state = &#123;</span><br><span class="line">            count:<span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">this</span>.handleClick = <span class="built_in">this</span>.handleClick.bind(<span class="built_in">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">render</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> &#123;count&#125; = <span class="built_in">this</span>.state;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;h2&gt;&#123;count&#125;&lt;/h2&gt;</span><br><span class="line">                &lt;button onClick=&#123;<span class="built_in">this</span>.handleClick&#125;&gt;修改&lt;/button&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            )</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">handleClick</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.setState(&#123;</span><br><span class="line">            count:<span class="built_in">this</span>.state.count+<span class="number">1</span></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>hooks：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React,&#123;useState&#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> ()=&gt;&#123;</span><br><span class="line">    <span class="keyword">let</span> [count,setCount] = useState(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">let</span> handleAdd = <span class="function">()=&gt;</span>setCount(count+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;h2&gt;&#123;count&#125;&lt;/h2&gt;</span><br><span class="line">            &lt;button onClick=&#123;handleAdd&#125;&gt;点击&lt;/button&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>三、Hooks常用的方法</strong><br>　　　　useState,useEffect,useContext,useReducer以上是hooks经常会用到的一些方法<br>（1）useState<br>可以在函数组件(function component)使用它。它在的作用是添加本地状态到当前组件。React会一直维持在这个state。useState将会有两个返回值：当前的state和一个更新state的方法。<br>调用useState时传入的参数表示着initial State。我们可以多次调用useState在同一个组件中，表示创建多个状态。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">const</span> HookDemo = <span class="function">(<span class="params">&#123;&#125;</span>) =&gt;</span> &#123;</span><br><span class="line"><span class="keyword">const</span> [count, setCount] = useState(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">const</span> [number, setNumber] = useState(<span class="number">2</span>)</span><br><span class="line"><span class="keyword">const</span> [todos, setTodos] = useState([&#123;<span class="attr">text</span>: <span class="string">&#x27;huzhiwei&#x27;</span>&#125;])</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> setHandle = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  todos[<span class="number">0</span>].text = <span class="string">&#x27;jp&#x27;</span></span><br><span class="line">  setTodos(<span class="built_in">Object</span>.assign(&#123;&#125;, todos))</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> (</span><br><span class="line">  count: &#123;count&#125;</span><br><span class="line">  number: &#123;number&#125;</span><br><span class="line">  todos: &#123;todos[<span class="number">0</span>].text&#125;</span><br><span class="line">  &lt;button onClick=&#123;<span class="function">()=&gt;</span>setCount(count+<span class="number">1</span>)&#125;&gt;count handler&lt;/button&gt;</span><br><span class="line">  &lt;button onClick=&#123;<span class="function">()=&gt;</span>setNumber(number+<span class="number">1</span>)&#125;&gt;number handler&lt;/button&gt;</span><br><span class="line">  &lt;button onClick=&#123;<span class="function">()=&gt;</span>setHandle()&#125;&gt;todos handler&lt;/button&gt;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>}<br>（2）useEffect<br>我们可能执行过请求获取数据，监听，或者手动改变DOM。我们可以称为这些为副作用。因为这些操作可能会影响到其他组件或者不能在渲染组件中完成。<br>Effect Hook给函数组件增加了处理副作用的能力。可以理解它的能力和componentDidMount、componentDidUpdate、componentWillUnmount类似。useEffect将这些统一为一个单独的API。<br>如下：  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState, useEffect &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Example</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> [count, setCount] = useState(<span class="number">0</span>)</span><br><span class="line">    </span><br><span class="line">    useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">document</span>.title = <span class="string">&#x27;good body&#x27;</span></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;span&gt;&#123; count &#125;&lt;/span&gt;</span><br><span class="line">            &lt;button onClick=&#123;<span class="function">()=&gt;</span>setCount(count + <span class="number">1</span>)&#125;&gt;click me&lt;/button&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+<p>当我们调用useEffect时，就是告诉React在刷新对DOM的更改后执行effect函数。React会在每次渲染后执行effect函数。<br>effect还可以选择性地指定如何通过返回函数在它们之后“清理”。例如，该组件使用一个效果来订阅朋友的在线状态，并通过取消订阅来清理:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState, useEffect &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">FriendStatus</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> [isOnline, setIsOnline] = useState(<span class="literal">null</span>)</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">handleStatusChange</span>(<span class="params">status</span>) </span>&#123;</span><br><span class="line">        setIsOnline(status.isOnline)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange)</span><br><span class="line">        <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">            ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(isOnline === <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;Loading...&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> isOnline ? <span class="string">&#x27;Online&#x27;</span> : <span class="string">&#x27;Offline&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个例子中,当组件unmount的时候React将会通过ChatAPI取消订阅。在后续的render又将会重新执行这些effect。</p>
 <p>Tip: 我们在组件中也可以像useState一样多次调用。</p>
-<p>effect在第一次组件挂载和后面组件更新时都会执行，这样就会导致一些非必要的effect重复执行。如果我们想通过对比前后数据是否发生改变来判断是否触发effect，我们可以通过传入数组作为第二个参数：<br>useEffect(() =&gt; {<br>  document.title = <code>You clicked $&#123;count&#125; times</code>;<br>}, [count]); // 仅在 count 更改时更新<br>如果你想要执行只运行一次的 effect（仅在组件挂载和卸载时执行），你可以传递一个空数组([])作为第二个参数。这就告诉 React 你的 effect 不依赖于 props 或 state 中的任何值，所以它永远都不需要重复执行。这并不算是一种特殊情况 —— 依然遵循输入数组的工作方式。<br>（3）useContext（）<br>如果需要两个或者多个组件都共享一个值的话，就可以使用useContext了<br>这里比如有两个Context组件，都需要name变量的值，那么就通过createContext方法先定义一个useContext叫做AppContext，可以直接在里面添加defaultValue，也可以在引用的时候再添加。</p>
-<p><img src="../img/1.png" alt="img"></p>
+<p>effect在第一次组件挂载和后面组件更新时都会执行，这样就会导致一些非必要的effect重复执行。如果我们想通过对比前后数据是否发生改变来判断是否触发effect，我们可以通过传入数组作为第二个参数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">document</span>.title = <span class="string">`You clicked <span class="subst">$&#123;count&#125;</span> times`</span>;</span><br><span class="line">&#125;, [count]); <span class="comment">// 仅在 count 更改时更新</span></span><br></pre></td></tr></table></figure>
+<p>如果你想要执行只运行一次的 effect（仅在组件挂载和卸载时执行），你可以传递一个空数组([])作为第二个参数。这就告诉 React 你的 effect 不依赖于 props 或 state 中的任何值，所以它永远都不需要重复执行。这并不算是一种特殊情况 —— 依然遵循输入数组的工作方式。<br>（3）useContext（）<br>如果需要两个或者多个组件都共享一个值的话，就可以使用useContext了<br>这里比如有两个Context组件，都需要name变量的值，那么就通过createContext方法先定义一个useContext叫做AppContext，可以直接在里面添加defaultValue，也可以在引用的时候再添加。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123;useContext&#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> AppContext =React.createContext(defaultValue)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> FirstContext = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123;name&#125; = useContext(AppContext)</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &lt;p&gt;&#123;name&#125;&lt;/p&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> SecondContext = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123;name&#125; = useContext(AppContext)</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &lt;p&gt;&#123;name&#125;&lt;/p&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>（4）useReducer<br>跟以前的reducer一样，原理也是(state,action) =&gt; newState<br>这里也是一样的，可以const [state,dispatch] = useReducer(reducer, initialState)</p>
-<p><img src="../img/2.png" alt="img"></p>
-<p>根据action的type进行不同的dispatch，这里在点击Add的Button的时候进行dispatch<br>&lt;button onClick={() =&gt; dispatch({ type: ‘Add’ })}&gt;Add +</button><br>这样子就好了</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123;useReducer&#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> myReducer = <span class="function">(<span class="params">state, action</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span>(action.type) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;ADD&#x27;</span>:</span><br><span class="line">            <span class="keyword">return</span> &#123;</span><br><span class="line">                ...state,</span><br><span class="line">                count: state.count + <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">return</span> state</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> newCounter = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> [state, dispatch] = useReducer(myReducer,<span class="attr">initalState</span>: &#123;<span class="attr">count</span>: <span class="number">0</span>&#125;)</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;button onClick=&#123;<span class="function"><span class="params">_</span>=&gt;</span>dispatch(&#123;<span class="attr">type</span>: <span class="string">&#x27;Add&#x27;</span>&#125;)&#125;&gt;Add+&lt;/button&gt;</span><br><span class="line">            &lt;p&gt;&#123;state.count&#125;&lt;/p&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>根据action的type进行不同的dispatch，这里在点击Add的Button的时候进行dispatch</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onClick=&#123;<span class="function">() =&gt;</span> dispatch(&#123; <span class="attr">type</span>: <span class="string">&#x27;Add&#x27;</span> &#125;)&#125;&gt;Add +&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<p>这样子就好了</p>
 <p>四. Hooks规则</p>
-<p>·Hooks只在顶层调用，不要在循环，条件判断或者嵌套函数中调用钩子。<br>·只在React的函数组件(function Component)中调用Hooks。<br>·对于自定义Hooks，我们使用use开头命名。<br>·eslint-plugin-react-hooks该插件可以规范hooks写法。<br>·React 靠的是 Hook 调用的顺序来对应state和useState。</p>
+<p><strong>·</strong>Hooks只在顶层调用，不要在循环，条件判断或者嵌套函数中调用钩子。<br><strong>·</strong>只在React的函数组件(function Component)中调用Hooks。<br><strong>·</strong>对于自定义Hooks，我们使用use开头命名。<br><strong>·</strong>eslint-plugin-react-hooks该插件可以规范hooks写法。<br><strong>·</strong>React 靠的是 Hook 调用的顺序来对应state和useState。</p>
 
 
                 
