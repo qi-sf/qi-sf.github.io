@@ -1,116 +1,205 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>TypeScript | Resume</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="基础类型：布尔值最基本的数据类型就是简单的true&#x2F;false值，在JavaScript和TypeScript里叫做boolean 数字number类型，除了支持十进制和十六进制字面量，TypeScript还支持ECMAScript 2015中引入的二进制和八进制字面量。 字符串我们使用 string表示文本数据类型。 和JavaScript一样，可以使用双引号（ “）或单引号（’）表示字符串。还">
-<meta property="og:type" content="article">
-<meta property="og:title" content="TypeScript">
-<meta property="og:url" content="http://example.com/2020/12/29/TypeScript/index.html">
-<meta property="og:site_name" content="Resume">
-<meta property="og:description" content="基础类型：布尔值最基本的数据类型就是简单的true&#x2F;false值，在JavaScript和TypeScript里叫做boolean 数字number类型，除了支持十进制和十六进制字面量，TypeScript还支持ECMAScript 2015中引入的二进制和八进制字面量。 字符串我们使用 string表示文本数据类型。 和JavaScript一样，可以使用双引号（ “）或单引号（’）表示字符串。还">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2020/12/29/img/3.png">
-<meta property="og:image" content="http://example.com/2020/12/29/img/4.png">
-<meta property="og:image" content="http://example.com/2020/12/29/img/5.png">
-<meta property="og:image" content="http://example.com/2020/12/29/img/6.png">
-<meta property="og:image" content="http://example.com/2020/12/29/img/7.png">
-<meta property="og:image" content="http://example.com/2020/12/29/img/8.png">
-<meta property="og:image" content="http://example.com/2020/12/29/img/9.png">
-<meta property="og:image" content="http://example.com/2020/12/29/img/10.png">
-<meta property="og:image" content="http://example.com/2020/12/29/img/11.png">
-<meta property="og:image" content="http://example.com/2020/12/29/img/12.png">
-<meta property="og:image" content="http://example.com/2020/12/29/img/13.png">
-<meta property="og:image" content="http://example.com/2020/12/29/img/14.png">
-<meta property="og:image" content="http://example.com/2020/12/29/img/15.png">
-<meta property="og:image" content="http://example.com/2020/12/29/img/16.png">
-<meta property="article:published_time" content="2020-12-29T11:39:35.000Z">
-<meta property="article:modified_time" content="2020-12-29T13:01:41.882Z">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2020/12/29/img/3.png">
-  
-    <link rel="alternate" href="/atom.xml" title="Resume" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+<html lang="en">
 
-  
-  
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="基础类型：布尔值最基本的数据类型就是简单的true/false值，在JavaScript和TypeScript里叫做boolean
+数字number类型，除了支持十进制和十六进制字面量，TypeScript还支持ECMAScript 2015中引入的二进制和八进制字面量。
+字符串我们使用 strin"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="TypeScript"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="基础类型：布尔值最基本的数据类型就是简单的true/false值，在JavaScript和TypeScript里叫做boolean
+数字number类型，除了支持十进制和十六进制字面量，TypeScript还支持ECMAScript 2015中引入的二进制和八进制字面量。
+字符串我们使用 strin"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Resume"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://example.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://example.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>TypeScript - Resume</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
 <link rel="stylesheet" href="/css/style.css">
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
-  
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
 <meta name="generator" content="Hexo 5.3.0"></head>
 
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Resume</a>
-      </h1>
-      
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>TypeScript</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2020-12-29
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </header>
 
-      <div class="outer">
-        <section id="main"><article id="post-TypeScript" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/12/29/TypeScript/" class="article-date">
-  <time class="dt-published" datetime="2020-12-29T11:39:35.000Z" itemprop="datePublished">2020-12-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      TypeScript
-    </h1>
-  
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>基础类型：<br>布尔值<br>最基本的数据类型就是简单的true/false值，在JavaScript和TypeScript里叫做boolean<br><img src="../img/3.png" alt="img"></p>
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>基础类型：<br>布尔值<br>最基本的数据类型就是简单的true/false值，在JavaScript和TypeScript里叫做boolean<br><img src="../img/3.png" alt="img"></p>
 <p>数字<br>number类型，除了支持十进制和十六进制字面量，TypeScript还支持ECMAScript 2015中引入的二进制和八进制字面量。<br><img src="../img/4.png" alt="img"></p>
 <p>字符串<br>我们使用 string表示文本数据类型。 和JavaScript一样，可以使用双引号（ “）或单引号（’）表示字符串。<br><img src="../img/5.png" alt="img"><br>还可以使用模版字符串，它可以定义多行文本和内嵌表达式。 这种字符串是被反引号包围（ `），并且以${ expr }这种形式嵌入表达式<br><img src="../img/6.png" alt="img"></p>
 <p>数组<br>TypeScript像JavaScript一样可以操作数组元素。 有两种方式可以定义数组。<br>第一种，可以在元素类型后面接上 []，表示由此类型元素组成的一个数组：<br><img src="../img/7.png" alt="img"><br>第二种方式是使用数组泛型，Array&lt;元素类型&gt;：<br><img src="../img/8.png" alt="img"></p>
@@ -126,134 +215,76 @@
 <p>interface labelValue {<br>    label?: string;<br>    size: number<br>}<br>function print(labelObj: labelValue) {<br>    console.log(labelObj.label)<br>}<br>let obj = {size: 10}<br>print(obj)</p>
 <p>2）多一个，用索引类型<br>用于描述那些“通过索引得到”的类型，比如arr[0]或obj[“key”]。<br>可以大概理解为是在定义对象中key（propName）和value的数据结构，后续对象中的属性，只要key和value满足索引签名的限定即可, 无论有多少个都无所谓。<br>interface stringArray {<br>    [propName:number]:string<br>}<br>let arr:stringArray = {<br>    0:’a’,<br>    1:’b’,<br>    2:’c’<br>};<br>let arr:stringArray = [‘a’, ‘b’, ‘c’];<br>console.log(arr[0]);<br>console.log(arr[1]);<br>console.log(arr[2]);</p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/29/TypeScript/" data-id="ckjbfcs18000204u16b9adxgs" data-title="TypeScript" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2020/12/30/%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2020/12/28/ES6-class/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">ES6-class</div>
-    </a>
-  
-</nav>
 
-  
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
 </article>
 
+    <!-- Footer -->
+    <hr />
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
 
-  
-    
+                    
 
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2020 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
     </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2020/12/30/%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/29/TypeScript/">TypeScript</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/28/ES6-class/">ES6-class</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/26/Hooks/">Hooks</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/25/%E7%BB%83%E4%B9%A0/">练习</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2020 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
 
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+
+    <!-- After footer scripts -->
     
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
+<!-- Disqus Comments -->
 
 
 
-
-
-  </div>
 </body>
+
 </html>
