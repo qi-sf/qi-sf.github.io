@@ -217,10 +217,10 @@
 <li><p>属性名不应该包含任何大写字母，并且在前缀 “data-“ 之后必须有至少一个字符</p>
 </li>
 <li><p>属性值可以是任意字符串</p>
-<p> <img src="https://img2020.cnblogs.com/blog/2058146/202012/2058146-20201224150612573-1461407504.png" alt="img"></p>
-</li>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = e.target <span class="keyword">as</span> HTMLElement</span><br><span class="line"><span class="keyword">const</span> tagName = target.tagName</span><br><span class="line"><span class="comment">//dataset 获取所有data-开头的自定义属性 并存在一个对象里</span></span><br><span class="line"><span class="keyword">const</span> id = <span class="built_in">Number</span>(target.dataset.id)</span><br></pre></td></tr></table></figure>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2></li>
 </ul>
-<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><h2 id="3-请描述一下cookies，sessionStorage和localStorage的区别？"><a href="#3-请描述一下cookies，sessionStorage和localStorage的区别？" class="headerlink" title="3.请描述一下cookies，sessionStorage和localStorage的区别？"></a>3.请描述一下cookies，sessionStorage和localStorage的区别？</h2><p>sessionStorage和localStorage是HTML5 Web Storage API提供的，可以方便的在web请求之间保存数据。有了本地数据，就可以避免数据在浏览器和服务器间不必要地来回传递。sessionStorage、localStorage、cookie都是在浏览器端存储的数据，其中sessionStorage的概念很特别，引入了一个“浏览器窗口”的概念。sessionStorage是在同源的同窗口（或tab）中，始终存在的数据。也就是说只要这个浏览器窗口没有关闭，即使刷新页面或进入同源另一页面，数据仍然存在。关闭窗口后，sessionStorage即被销毁。同时“独立”打开的不同窗口，即使是同一页面，sessionStorage对象也是不同的cookies会发送到服务器端。其余两个不会。Microsoft指出InternetExplorer8增加cookie限制为每个域名50个，但IE7似乎也允许每个域名50个cookie。</p>
+<h2 id="3-请描述一下cookies，sessionStorage和localStorage的区别？"><a href="#3-请描述一下cookies，sessionStorage和localStorage的区别？" class="headerlink" title="3.请描述一下cookies，sessionStorage和localStorage的区别？"></a>3.请描述一下cookies，sessionStorage和localStorage的区别？</h2><p>sessionStorage和localStorage是HTML5 Web Storage API提供的，可以方便的在web请求之间保存数据。有了本地数据，就可以避免数据在浏览器和服务器间不必要地来回传递。sessionStorage、localStorage、cookie都是在浏览器端存储的数据，其中sessionStorage的概念很特别，引入了一个“浏览器窗口”的概念。sessionStorage是在同源的同窗口（或tab）中，始终存在的数据。也就是说只要这个浏览器窗口没有关闭，即使刷新页面或进入同源另一页面，数据仍然存在。关闭窗口后，sessionStorage即被销毁。同时“独立”打开的不同窗口，即使是同一页面，sessionStorage对象也是不同的cookies会发送到服务器端。其余两个不会。Microsoft指出InternetExplorer8增加cookie限制为每个域名50个，但IE7似乎也允许每个域名50个cookie。</p>
 <ul>
 <li>Firefox每个域名cookie限制为50个。</li>
 <li>Opera每个域名cookie限制为30个。</li>
