@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="ES5严格模式（Strict mode）严格模式（Strict mode）是由ECMA-262规范定义的新兴JavaScript标准，第五版发布于2009年12月。旨在改善错误检查功能并且标识可能不会延续到未来JavaScript版本的脚本。ES5严格模式是限制性更强的JavaScript变体，它与"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="严格模式"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="ES5严格模式（Strict mode）严格模式（Strict mode）是由ECMA-262规范定义的新兴JavaScript标准，第五版发布于2009年12月。旨在改善错误检查功能并且标识可能不会延续到未来JavaScript版本的脚本。ES5严格模式是限制性更强的JavaScript变体，它与"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Resume"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://example.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://example.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>严格模式 - Resume</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>严格模式</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2021-01-05
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>ES5严格模式（Strict mode）<br>严格模式（Strict mode）是由ECMA-262规范定义的新兴JavaScript标准，第五版发布于2009年12月。旨在改善错误检查功能并且标识可能不会延续到未来JavaScript版本的脚本。ES5严格模式是限制性更强的JavaScript变体，它与常规JavaScript的语义不同，其分析更为严格。<br>目前，除了IE6-9，其它浏览器均已支持ES5严格模式。</p>
+<p>设立”严格模式”的目的，主要有以下几个：错误检测、规范、效率、安全、面向未来</p>
+<p>　　- 消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行为;</p>
+<p>　　- 消除代码运行的一些不安全之处，保证代码运行的安全；</p>
+<p>　　- 提高编译器效率，增加运行速度；</p>
+<p>　　- 为未来新版本的Javascript做好铺垫。</p>
+<h2 id="严格模式的使用"><a href="#严格模式的使用" class="headerlink" title="严格模式的使用"></a>严格模式的使用</h2><p>进入”严格模式”的<strong>编译指示</strong>（pragma），是这行语句：　　</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;use strict&quot;;  </span><br></pre></td></tr></table></figure>
+<h4 id="1）全局模式"><a href="#1）全局模式" class="headerlink" title="1）全局模式"></a>1）全局模式</h4><p>将”use strict”放在脚本文件的第一行，则整个脚本都将以”严格模式”运行。</p>
+<p>如果这行语句不在第一行，则无效，整个脚本以”正常模式”运行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(num) <span class="comment">//1 与非严格模式没什么区别</span></span><br></pre></td></tr></table></figure>
+<h4 id="2）局部模式"><a href="#2）局部模式" class="headerlink" title="2）局部模式"></a>2）局部模式</h4><p> 将”use strict”放在函数体的第一行，则整个函数以”严格模式”运行。 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">    &#x27;use strict&#x27;</span></span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">1</span></span><br><span class="line">    <span class="built_in">console</span>.log(num)<span class="comment">//1 与非严格模式也没什么区别</span></span><br><span class="line">&#125;</span><br><span class="line">fn()</span><br></pre></td></tr></table></figure>
+<p> <strong>“use strict” 的位置是很讲究的，必须在首部。首部指其前面没有任何有效js代码。以下都是无效的，将不会触发严格模式</strong> </p>
+<p>（1）“use strict” 前有代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">1</span></span><br><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line">num = <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<p>（2）“use strict” 前有个空语句都不行</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">;</span><br><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>（3）“use strict” 前有符号也不行</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    ;<span class="string">&#x27;use strict&#x27;</span></span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="严格模式下的执行限制"><a href="#严格模式下的执行限制" class="headerlink" title="严格模式下的执行限制"></a>严格模式下的执行限制</h2><p><strong>变量</strong></p>
+<p>非严格模式下，a = 1可以创建一个全局变量。</p>
+<p>严格模式下，变量都必须先用var命令显示声明，然后再使用。 严格模式不允许意外创建的全局变量</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;  </span><br><span class="line">a = <span class="number">1</span>; <span class="comment">// 报错，a未声明  </span></span><br></pre></td></tr></table></figure>
+<p>还有全局的for循环 </p>
+<p> 这种写法i 会不小心溢出成为全局变量。在严格模式中会报错 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"><span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;<span class="number">5</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>对象</strong></p>
+<p>为只读属性赋值报报错</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>  </span><br><span class="line"><span class="keyword">var</span> testObj = <span class="built_in">Object</span>.defineProperties(&#123;&#125;, &#123;  </span><br><span class="line">  prop1: &#123;  </span><br><span class="line">      value: <span class="number">10</span>,  </span><br><span class="line">      writable: <span class="literal">false</span> <span class="comment">// by default  </span></span><br><span class="line">  &#125;,  </span><br><span class="line">  prop2: &#123;  </span><br><span class="line">      get: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;  </span><br><span class="line">      &#125;  </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p> 对象字面量同一个属性重复赋值，非严格模式会取最后一个</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>  </span><br><span class="line"><span class="keyword">var</span> person = &#123;  </span><br><span class="line">  name : <span class="string">&quot;Tom&quot;</span>  </span><br><span class="line">  name : <span class="string">&quot;Cat&quot;</span>  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+<p><strong>函数</strong></p>
+<p>严格模式下参数名不能重复</p>
+<p>非严格模式，函数内部实际访问的是第二个参数，要访问第一个参数必须通过arguments对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>  </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">value</span>) </span>&#123;  </span><br><span class="line">    value = <span class="string">&quot;Foo&quot;</span>  </span><br><span class="line">    alert(value)        <span class="comment">// Foo  </span></span><br><span class="line">    alert(<span class="built_in">arguments</span>[<span class="number">0</span>]) <span class="comment">// 严格模式 hi  </span></span><br><span class="line">                        <span class="comment">// 非严格模式 Foo  </span></span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line">fn(<span class="string">&quot;hi&quot;</span>)  </span><br></pre></td></tr></table></figure>
+<p>严格模式也淘汰了arguments.callee(引用函数本身)和arguments.caller(引用函数调用函数)</p>
+<p><strong>不允许非顶层的函数</strong>。也就是，只能在脚本的顶级和在函数内部申明函数，if for等语句中申明函数会导致语法错误。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;  </span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>)&#123;  </span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; &#125; <span class="comment">// 报错! syntax error  </span></span><br><span class="line">  f();  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;  </span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>) </span>&#123; &#125; <span class="comment">// 报错! syntax error  </span></span><br><span class="line">  f2();  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">baz</span>(<span class="params"></span>)</span>&#123; <span class="comment">// kosher  </span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">eit</span>(<span class="params"></span>) </span>&#123; &#125; <span class="comment">// also kosher  </span></span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+<p><strong>this</strong></p>
+<p>严格模式下抑制this</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>; </span><br><span class="line">&#125;)()</span><br><span class="line"> </span><br><span class="line">Window &#123;<span class="attr">top</span>: Window, <span class="attr">window</span>: Window, <span class="attr">location</span>: Location, <span class="attr">external</span>: <span class="built_in">Object</span>, <span class="attr">chrome</span>: <span class="built_in">Object</span>…&#125;</span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line"><span class="meta">    &#x27;use strict&#x27;</span>; </span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>; </span><br><span class="line">&#125;)()</span><br><span class="line"><span class="literal">undefined</span></span><br></pre></td></tr></table></figure>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2021 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
