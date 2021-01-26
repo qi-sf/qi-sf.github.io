@@ -25,7 +25,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="HTML5新特性"/>
+        <meta property="og:title" content="Resume"/>
     
 
     <!--Open Graph Description-->
@@ -40,7 +40,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="article"/>
+        <meta property="og:type" content="website"/>
     
 
     <!--Page Cover-->
@@ -59,7 +59,7 @@
 
     <!-- Title -->
     
-    <title>HTML5新特性 - Resume</title>
+    <title>Resume</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -171,7 +171,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>HTML5新特性</h1>
+                    <h1>Untitled</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
@@ -235,6 +235,47 @@
 <p><strong>3 . 用于绘画的canvas属性</strong></p>
 </blockquote>
 <p>Canvas API 提供了一个通过JavaScript 和 HTML的<strong>canvas</strong>元素来绘制图形的方式。它可以用于动画、游戏画面、数据可视化、图片编辑以及实时视频处理等方面。</p>
+<p><strong><em>Canvas - 图形</em></strong></p>
+<ol>
+<li><p>创建一个画布，一个画布在网页中是一个矩形框，通过 <canvas> 元素来绘制。默认情况下 元素没有边框和内容。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">&quot;myCanvas&quot;</span> <span class="attr">width</span>=<span class="string">&quot;200&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100&quot;</span> <span class="attr">style</span>=<span class="string">&quot;border:1px solid #000000;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>标签通常需要指定一个id属性 (脚本中经常引用), width 和 height 属性定义的画布的大小，使用 style 属性来添加边框。你可以在HTML页面中使用多个 <canvas> 元素 </p>
+</li>
+<li><p>使用Javascript来绘制图像，canvas 元素本身是没有绘图能力的。所有的绘制工作必须在 JavaScript 内部完成 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">　　<span class="keyword">var</span> c=<span class="built_in">document</span>.getElementById(<span class="string">&quot;myCanvas&quot;</span>);</span><br><span class="line">　　<span class="keyword">var</span> ctx=c.getContext(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line">　　ctx.fillStyle=<span class="string">&quot;#FF0000&quot;</span>;</span><br><span class="line">　　ctx.fillRect(<span class="number">0</span>,<span class="number">0</span>,<span class="number">150</span>,<span class="number">75</span>);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>getContext(“2d”) 对象是内建的 HTML5 对象，拥有多种绘制路径、矩形、圆形、字符以及添加图像的方法。</p>
+<p>设置 fillStyle 属性可以是CSS颜色，渐变，或图案。fillStyle默认设置是#000000（黑色）。fillRect(x,y,width,height) 方法定义了矩形当前的填充方式。意思是：在画布上绘制 150x75 的矩形，从左上角开始 (0,0)。　</p>
+</li>
+</ol>
+<p><strong><em>Canvas - 路径</em></strong></p>
+<p>  在Canvas上画线，我们将使用以下两种方法：</p>
+<p>  moveTo(<em>x,y</em>) 定义线条开始坐标</p>
+<p>  lineTo(<em>x,y</em>) 定义线条结束坐标</p>
+<p>  绘制线条我们必须使用到 “ink” 的方法，就像stroke() </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> c=<span class="built_in">document</span>.getElementById(<span class="string">&quot;myCanvas&quot;</span>);</span><br><span class="line">    <span class="keyword">var</span> ctx=c.getContext(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line">    ctx.moveTo(<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">    ctx.lineTo(<span class="number">200</span>,<span class="number">100</span>);</span><br><span class="line">    ctx.stroke();</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p> 定义开始坐标(0,0), 和结束坐标 (200,100). 然后使用 stroke() 方法来绘制线条 </p>
+<p><strong><em>Canvas - 文本</em></strong></p>
+<p>   使用 canvas 绘制文本，重要的属性和方法如下：</p>
+<p>　　font - 定义字体</p>
+<p>　　fillText(<em>text,x,y</em>) - 在 canvas 上绘制实心的文本</p>
+<p>　　strokeText(<em>text,x,y</em>) - 在 canvas 上绘制空心的文本</p>
+<p>   使用 fillText():</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> c=<span class="built_in">document</span>.getElementById(<span class="string">&quot;myCanvas&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> ctx=c.getContext(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line">ctx.font=<span class="string">&quot;30px Arial&quot;</span>;</span><br><span class="line">ctx.fillText(<span class="string">&quot;Hello World&quot;</span>,<span class="number">10</span>,<span class="number">50</span>);</span><br></pre></td></tr></table></figure>
+<p> 使用 “Arial” 字体在画布上绘制一个高 30px 的文字（实心） </p>
+<p><strong><em>Canvas - 渐变</em></strong></p>
+<p>   渐变可以填充在矩形, 圆形, 线条, 文本等等, 各种形状可以自己定义不同的颜色。</p>
+<p>   以下有两种不同的方式来设置Canvas渐变：</p>
+<p>　　  createLinearGradient(<em>x,y,x1,y1</em>) - 创建线条渐变</p>
+<p>　　  createRadialGradient(<em>x,y,r,x1,y1,r1</em>) - 创建一个径向/圆渐变</p>
+<p>   当我们使用渐变对象，必须使用两种或两种以上的停止颜色。</p>
+<p>   addColorStop()方法指定颜色停止，参数使用坐标来描述，可以是0至1.</p>
+<p>   使用渐变，设置fillStyle或strokeStyle的值为渐变，然后绘制形状，如矩形，文本，或一条线。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> c=<span class="built_in">document</span>.getElementById(<span class="string">&quot;myCanvas&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> ctx=c.getContext(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// Create gradient</span></span><br><span class="line"><span class="keyword">var</span> grd=ctx.createLinearGradient(<span class="number">0</span>,<span class="number">0</span>,<span class="number">200</span>,<span class="number">0</span>);</span><br><span class="line">grd.addColorStop(<span class="number">0</span>,<span class="string">&quot;red&quot;</span>);</span><br><span class="line">grd.addColorStop(<span class="number">1</span>,<span class="string">&quot;white&quot;</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// Fill with gradient</span></span><br><span class="line">ctx.fillStyle=grd;</span><br><span class="line">ctx.fillRect(<span class="number">10</span>,<span class="number">10</span>,<span class="number">150</span>,<span class="number">80</span>);</span><br></pre></td></tr></table></figure>
+<p>​    创建了一个线性渐变，使用渐变填充矩形 </p>
+<p><strong><em>Canvas - 图像</em></strong></p>
+<p>   把一幅图像放置到画布上, 使用 drawImage(<em>image,x,y</em>) 方法 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> c=<span class="built_in">document</span>.getElementById(<span class="string">&quot;myCanvas&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> ctx=c.getContext(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> img=<span class="built_in">document</span>.getElementById(<span class="string">&quot;scream&quot;</span>);</span><br><span class="line">ctx.drawImage(img,<span class="number">10</span>,<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+<p> 把一幅图像放置到了画布上 </p>
 <blockquote>
 <p><strong>4 . 新增本地存储方式：sessionStorage、localStorage</strong></p>
 </blockquote>
@@ -360,6 +401,36 @@
 <li><p>multiple 属性 ，是一个 boolean 属性。规定<input> 元素中可选择多个值。　　　</p>
 </li>
 </ul>
+<blockquote>
+<p><strong>7 . 拖放API</strong></p>
+</blockquote>
+<p>拖放是一种常见的特性，即抓取对象以后拖到另一个位置。在 HTML5 中，拖放是标准的一部分，任何元素都能够拖放。</p>
+<p>　　拖放的过程分为源对象和目标对象。源对象是指你即将拖动元素，而目标对象则是指拖动之后要放置的目标位置。</p>
+<p> <strong><em>拖放的源对象(可能发生移动的)可以触发的事件  — 3个</em></strong>：</p>
+<p>dragstart：拖动开始</p>
+<p>drag：拖动中</p>
+<p>dragend：拖动结束</p>
+<p>整个拖动过程的组成：<br>$$<br>dragstart<em>1 + drag</em>n + dragend<em>1<br>$$<br>**</em>拖放的目标对象(不会发生移动)可以触发的事件 — 4个：***</p>
+<p>dragenter：拖动着进入</p>
+<p>dragover：拖动着悬停</p>
+<p>dragleave：拖动着离开</p>
+<p>drop：释放</p>
+<p>整个拖动过程的组成1：<br>$$<br>dragenter<em>1 + dragover</em>n + dragleave<em>1<br>$$<br>整个拖动过程的组成2：<br>$$<br>dragenter</em>1 + dragover<em>n + drop</em>1<br>$$</p>
+<p><strong><em>dataTransfer：用于数据传递的“拖拉机”对象；</em></strong></p>
+<p> 在拖动源对象事件中使用e.dataTransfer属性保存数据：</p>
+<p>e.dataTransfer.setData( k,  v )</p>
+<p> 在拖动目标对象事件中使用e.dataTransfer属性读取数据：</p>
+<p>var value = e.dataTransfer.getData( k )</p>
+<blockquote>
+<p><strong>8 . SVG绘图</strong></p>
+</blockquote>
+<p>　　SVG是指可伸缩的矢量图形</p>
+<p><strong><em>SVG 与 Canvas两者间的区别</em></strong>：</p>
+<p>　　SVG 是一种使用 XML 描述 2D 图形的语言。</p>
+<p>　　Canvas 通过 JavaScript 来绘制 2D 图形。</p>
+<p>　　SVG 基于 XML，这意味着 SVG DOM 中的每个元素都是可用的。您可以为某个元素附加 JavaScript 事件处理器。</p>
+<p>　　在 SVG 中，每个被绘制的图形均被视为对象。如果 SVG 对象的属性发生变化，那么浏览器能够自动重现图形。</p>
+<p>　　Canvas 是逐像素进行渲染的。在 canvas 中，一旦图形被绘制完成，它就不会继续得到浏览器的关注。如果其位置发生变化，那么整个场景也需要重新绘制，包括任何或许已被图形覆盖的对象。</p>
 
 
                 
